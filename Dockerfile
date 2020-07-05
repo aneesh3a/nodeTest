@@ -1,4 +1,6 @@
-FROM node:12
+FROM alpine:3.11
+
+ENV NODE_VERSION 12.13.1
 
 # Create app directory
 WORKDIR /
@@ -15,6 +17,6 @@ RUN npm ci --only=production
 # Bundle app source
 COPY . .
 
-EXPOSE 3001
+EXPOSE 8082
 # start app
 CMD ["npm", "start"]
